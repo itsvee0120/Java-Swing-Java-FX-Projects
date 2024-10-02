@@ -52,6 +52,8 @@ The application will display:
 ```
 Login successful!
 ```
+![{F456FDA0-9EDB-4F16-8A84-5A092FB34D1E}](https://github.com/user-attachments/assets/92380b59-0171-4bfb-82b4-24e00e6a4224)
+
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
