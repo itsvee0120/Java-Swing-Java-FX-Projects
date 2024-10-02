@@ -1,8 +1,7 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.Arrays;
 
 public class LoginGUI implements ActionListener {
 
@@ -24,7 +23,6 @@ public class LoginGUI implements ActionListener {
 
         // Panel setting
         panel.setLayout(null);
-
 
         userLabel = new JLabel("Username");
         userLabel.setBounds(10, 20, 80, 25);
@@ -51,23 +49,25 @@ public class LoginGUI implements ActionListener {
         success.setBounds(90, 110, 300, 25);
         panel.add(success);
 
-
         // Set frame visibility
         frame.setVisible(true);
     }
 
-    //Code get runs everytime button get clicked
+    // Code that runs every time button is clicked
     @Override
     public void actionPerformed(ActionEvent e) {
         String user = userText.getText();
-        String passwordGet = password.getText();
-        System.out.println(user + ", " + password);
+        char[] passwordGet = password.getPassword();
 
-        if (user.equals("n") && passwordGet.equals("123")) {
+        // Printing credentials to the console for debugging (optional)
+        System.out.println(user + ", " + Arrays.toString(passwordGet));
+
+        // Correct password check using Arrays.equals()
+        if (user.equals("n") && Arrays.equals(passwordGet, "123".toCharArray())) {
             success.setText("Login successful!");
-        } else if (user.isBlank() || passwordGet.isBlank()) {
+        } else if (user.isBlank() || passwordGet.length == 0) {
             success.setText("Enter your credentials to login");
-        }else{
+        } else {
             success.setText("Wrong Credentials");
         }
     }
